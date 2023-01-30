@@ -12,4 +12,17 @@
 
 body {
   font-size: 18px;
+  width: 100%;
+  height: 100vh;
+
+  background: url('../assets/img/pattern-bg.png') top / contain no-repeat;
+}
+
+.app-header {
+  margin-top: 30px;
+  color: white;
+  font-size: 1.65em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-align: center;
 }
