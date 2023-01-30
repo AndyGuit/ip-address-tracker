@@ -1,0 +1,49 @@
+@import '../../scss/variables';
+
+.inputBlock {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 580px;
+  height: 60px;
+
+  margin-top: 30px;
+
+  input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 15px 0 0 15px;
+    padding: 20px;
+
+    margin-left: 15px;
+
+    font-size: 1em;
+
+    &::placeholder {
+      color: $secondary;
+    }
+  }
+
+  button {
+    width: 65px;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 0 15px 15px 0;
+
+    margin-right: 15px;
+
+    background-color: $primary;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $primary-hover;
+    }
+  }
+}
