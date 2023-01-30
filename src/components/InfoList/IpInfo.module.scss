@@ -1,0 +1,42 @@
+@import '../../scss/variables';
+
+.infoList {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1110px;
+  margin: 0 auto;
+  margin-top: 45px;
+  padding: 30px;
+  border-radius: 15px;
+
+  .listDivider {
+    border-right: 1px solid $secondary;
+  }
+
+  li {
+    padding: 0 20px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+      border: none;
+    }
+
+    p {
+      margin-bottom: 10px;
+      font-size: 0.7em;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      color: $secondary;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-weight: 500;
+      letter-spacing: -0.7px;
+    }
+  }
+}
