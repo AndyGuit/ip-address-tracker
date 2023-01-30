@@ -1,5 +1,11 @@
+import './scss/app.scss';
+
 function App() {
-  return <div className="App">IP address tracker</div>;
+  return (
+    <div className="App">
+      <h1>IP Address Tracker</h1>
+    </div>
+  );
 }
 
 export default App;
