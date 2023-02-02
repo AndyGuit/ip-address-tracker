@@ -2,6 +2,7 @@ import './scss/app.scss';
 
 import Input from './components/Input';
 import InfoList from './components/InfoList';
+import Map from './components/Map';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <h1 className="app-header">IP Address Tracker</h1>
       <Input />
       <InfoList />
+      <Map />
     </div>
   );
 }

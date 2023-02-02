@@ -1,11 +1,21 @@
 @import '../../scss/variables';
 
+.infoListWrapper {
+  padding: 0 25px;
+
+  max-width: 1160px;
+  width: 100%;
+
+  position: fixed;
+  z-index: 500;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .infoList {
   background-color: white;
   display: flex;
   justify-content: space-between;
-  max-width: 1110px;
-  margin: 0 auto;
   margin-top: 45px;
   padding: 30px;
   border-radius: 15px;

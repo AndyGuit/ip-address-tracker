@@ -13,9 +13,11 @@
 body {
   font-size: 18px;
   width: 100%;
-  height: 100vh;
 
-  background: url('../assets/img/pattern-bg.png') top / contain no-repeat;
+  background-image: url('../assets/img/pattern-bg.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100vw 250px;
 }
 
 ul {
