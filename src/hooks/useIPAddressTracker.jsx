@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ipify from '../apis/ipify';
+import local from '../country.json';
 
 const useIPAddressTracker = searchValue => {
   const [address, setAddress] = useState({});
@@ -12,13 +13,19 @@ const useIPAddressTracker = searchValue => {
     const isIp = value.match('^[.0-9]*$');
     const param = isIp ? 'ipAddress' : 'domain';
 
-    const response = await ipify.get('/country,city', {
-      params: {
-        [param]: value,
-      },
-    });
+    try {
+      const response = await ipify.get('/country,city', {
+        params: {
+          [param]: value,
+        },
+      });
 
-    setAddress(response.data);
+      setAddress(response.data);
+    } catch (error) {
+      console.log(error);
+
+      setAddress({});
+    }
   };
 
   return [address, search];

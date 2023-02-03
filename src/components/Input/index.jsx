@@ -2,15 +2,12 @@ import React, { useState, useEffect } from 'react';
 import styles from './Input.module.scss';
 import useIPAddressTracker from '../../hooks/useIPAddressTracker';
 
-const url =
-  'https://geo.ipify.org/api/v2/country,city?apiKey=at_ZaMY3gtGUL61WQdiZGMI9EplzFVRB';
-
-const Input = () => {
+const Input = ({ setAddressData }) => {
   const [value, setValue] = useState('');
   const [address, searchAddress] = useIPAddressTracker('');
 
   useEffect(() => {
-    console.log(address);
+    setAddressData(address);
   }, [address]);
 
   const onSearch = () => {
@@ -20,6 +17,7 @@ const Input = () => {
   return (
     <div className={styles.inputBlock}>
       <input
+        onKeyDown={e => e.key === 'Enter' && searchAddress(value)}
         type="text"
         placeholder="Search for any IP address or domain"
         value={value}
