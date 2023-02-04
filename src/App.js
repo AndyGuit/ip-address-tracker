@@ -7,7 +7,6 @@ import { useState } from 'react';
 
 function App() {
   const [addressData, setAddressData] = useState({});
-  // const [isLoading, setIsLoadin]
 
   return (
     <div className="App">

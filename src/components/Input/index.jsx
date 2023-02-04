@@ -8,7 +8,7 @@ const Input = ({ setAddressData }) => {
 
   useEffect(() => {
     setAddressData(address);
-  }, [address]);
+  }, [address, setAddressData]);
 
   const onSearch = () => {
     searchAddress(value);
@@ -17,7 +17,7 @@ const Input = ({ setAddressData }) => {
   return (
     <div className={styles.inputBlock}>
       <input
-        onKeyDown={e => e.key === 'Enter' && searchAddress(value)}
+        onKeyDown={e => e.key === 'Enter' && onSearch(value)}
         type="text"
         placeholder="Search for any IP address or domain"
         value={value}

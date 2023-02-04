@@ -8,27 +8,30 @@ import local from '../../country.json';
 
 import styles from './Map.module.scss';
 
-const position = [51.505, -0.09];
-
 const Map = props => {
-  console.log(props);
-  return (
-    <MapContainer
-      className={styles.mapContainer}
-      center={[local.location.lat, local.location.lng]}
-      zoom={13}
-      scrollWheelZoom={false}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker
-        icon={iconLocation}
-        position={[local.location.lat, local.location.lng]}>
-        <Popup>{local.as.name}</Popup>
-      </Marker>
-    </MapContainer>
-  );
+  const hasProps = Object.keys(props).length;
+  console.log(hasProps);
+  if (hasProps) {
+    return (
+      <MapContainer
+        className={styles.mapContainer}
+        center={[local.location.lat, local.location.lng]}
+        zoom={13}
+        scrollWheelZoom={false}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker
+          icon={iconLocation}
+          position={[local.location.lat, local.location.lng]}>
+          <Popup>{local.as.name}</Popup>
+        </Marker>
+      </MapContainer>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default Map;
