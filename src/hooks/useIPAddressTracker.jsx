@@ -4,6 +4,8 @@ import local from '../country.json';
 
 const useIPAddressTracker = searchValue => {
   const [address, setAddress] = useState({});
+  const [errorMsg, setErrorMsg] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     search(searchValue);
@@ -14,6 +16,8 @@ const useIPAddressTracker = searchValue => {
     const param = isIp ? 'ipAddress' : 'domain';
 
     try {
+      setIsLoading(true);
+      setErrorMsg('');
       const response = await ipify.get('/country,city', {
         params: {
           [param]: value,
@@ -24,15 +28,14 @@ const useIPAddressTracker = searchValue => {
     } catch (error) {
       const apiError = error.response?.data?.messages;
       const axiosError = error.message;
-      // console.log(error);
-      console.log(apiError || axiosError);
-      setAddress(local);
 
-      // setErrorMsg(apiError || axiosError);
+      setErrorMsg(apiError || axiosError);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  return [address, search];
+  return [address, search, isLoading, errorMsg];
 };
 
 export default useIPAddressTracker;

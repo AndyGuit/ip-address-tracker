@@ -7,14 +7,18 @@ import { useState } from 'react';
 import useIPAddressTracker from './hooks/useIPAddressTracker';
 
 function App() {
-  const [address, searchAddress] = useIPAddressTracker('');
+  const [address, searchAddress, isLoading, errorMsg] = useIPAddressTracker('');
 
   return (
     <div className="App">
       <h1 className="app-header">IP Address Tracker</h1>
       <Input searchAddress={searchAddress} address={address} />
-      <InfoList addressData={address} />
-      <Map {...address} />
+      <InfoList
+        addressData={address}
+        errorMsg={errorMsg}
+        isLoading={isLoading}
+      />
+      <Map address={address} isLoading={isLoading} />
     </div>
   );
 }

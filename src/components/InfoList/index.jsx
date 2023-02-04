@@ -3,14 +3,22 @@ import Spinner from '../Spinner';
 
 import styles from './IpInfo.module.scss';
 
-const InfoList = ({ addressData }) => {
-  const notEmpty = Object.keys(addressData).length;
+const InfoList = ({ addressData, errorMsg, isLoading }) => {
+  if (isLoading) {
+    return (
+      <div className={styles.infoListWrapper}>
+        <ul className={styles.infoList}>
+          <Spinner />
+        </ul>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.infoListWrapper}>
       <ul className={styles.infoList}>
-        {!notEmpty ? (
-          <Spinner />
+        {!!errorMsg ? (
+          <p className={styles.infoError}>Error: {errorMsg}</p>
         ) : (
           <>
             <li>

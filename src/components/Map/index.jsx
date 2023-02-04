@@ -5,18 +5,16 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 
 import { LocationMarker } from '../LocationMarker/LocationMarker';
 
-import local from '../../country.json';
-
 import styles from './Map.module.scss';
 
-const Map = props => {
-  const hasProps = Object.keys(props).length;
+const Map = ({ address }) => {
+  const hasProps = Object.keys(address).length;
 
   if (hasProps) {
     return (
       <MapContainer
         className={styles.mapContainer}
-        center={[props.location.lat, props.location.lng]}
+        center={[address.location.lat, address.location.lng]}
         zoom={13}
         scrollWheelZoom={false}>
         <TileLayer
@@ -24,9 +22,9 @@ const Map = props => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <LocationMarker
-          lat={props.location.lat}
-          lng={props.location.lng}
-          name={props.as.name}
+          lat={address.location.lat}
+          lng={address.location.lng}
+          name={address.as?.name}
         />
       </MapContainer>
     );
