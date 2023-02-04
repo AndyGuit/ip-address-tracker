@@ -24,7 +24,7 @@ const useIPAddressTracker = searchValue => {
     } catch (error) {
       console.log(error);
 
-      setAddress({});
+      setAddress(local);
     }
   };
 
