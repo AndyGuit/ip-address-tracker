@@ -4,16 +4,17 @@ import Input from './components/Input';
 import InfoList from './components/InfoList';
 import Map from './components/Map';
 import { useState } from 'react';
+import useIPAddressTracker from './hooks/useIPAddressTracker';
 
 function App() {
-  const [addressData, setAddressData] = useState({});
+  const [address, searchAddress] = useIPAddressTracker('');
 
   return (
     <div className="App">
       <h1 className="app-header">IP Address Tracker</h1>
-      <Input setAddressData={setAddressData} />
-      <InfoList addressData={addressData} />
-      <Map {...addressData} />
+      <Input searchAddress={searchAddress} address={address} />
+      <InfoList addressData={address} />
+      <Map {...address} />
     </div>
   );
 }

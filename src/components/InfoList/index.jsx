@@ -5,6 +5,7 @@ import styles from './IpInfo.module.scss';
 
 const InfoList = ({ addressData }) => {
   const notEmpty = Object.keys(addressData).length;
+
   return (
     <div className={styles.infoListWrapper}>
       <ul className={styles.infoList}>

@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import styles from './Input.module.scss';
 import useIPAddressTracker from '../../hooks/useIPAddressTracker';
 
-const Input = ({ setAddressData }) => {
+const Input = ({ searchAddress, address }) => {
   const [value, setValue] = useState('');
-  const [address, searchAddress] = useIPAddressTracker('');
 
-  useEffect(() => {
-    setAddressData(address);
-  }, [address, setAddressData]);
+  // useEffect(() => {
+  //   setAddressData(address);
+  // }, [address, setAddressData]);
 
   const onSearch = () => {
     searchAddress(value);

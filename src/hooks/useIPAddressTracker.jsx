@@ -22,9 +22,13 @@ const useIPAddressTracker = searchValue => {
 
       setAddress(response.data);
     } catch (error) {
-      console.log(error);
-
+      const apiError = error.response?.data?.messages;
+      const axiosError = error.message;
+      // console.log(error);
+      console.log(apiError || axiosError);
       setAddress(local);
+
+      // setErrorMsg(apiError || axiosError);
     }
   };
 
