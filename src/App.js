@@ -3,7 +3,6 @@ import './scss/app.scss';
 import Input from './components/Input';
 import InfoList from './components/InfoList';
 import Map from './components/Map';
-import { useState } from 'react';
 import useIPAddressTracker from './hooks/useIPAddressTracker';
 
 function App() {

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import ipify from '../apis/ipify';
-import local from '../country.json';
 
 const useIPAddressTracker = searchValue => {
   const [address, setAddress] = useState({});
