@@ -18,6 +18,10 @@ body {
   background-repeat: no-repeat;
   background-position: top;
   background-size: 100vw 250px;
+
+  @media (max-width: 425px) {
+    font-size: 14px;
+  }
 }
 
 ul {

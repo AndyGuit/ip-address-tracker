@@ -33,7 +33,7 @@ const InfoList = ({ addressData, errorMsg, isLoading }) => {
             <div className={styles.listDivider}></div>
             <li>
               <p>timezone</p>
-              <h2>{addressData.location.timezone}</h2>
+              <h2>UTC {addressData.location.timezone}</h2>
             </li>
             <div className={styles.listDivider}></div>
             <li>
